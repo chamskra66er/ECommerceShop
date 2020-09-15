@@ -1,12 +1,11 @@
-﻿@addTagHelper *, RazorPages
+﻿
 @model ECommerce.Areas.Identity.Pages.Account.LoginModel
 
 <div id="myModal" class="modal">
     <div class="modal-content">
         <span class="closeModal">&times;</span>
         <h3>Войти на сайт.</h3>
-        <section>
-            <form id="account" method="post">
+            <form id="account" asp-area="Identity" asp-page="/Account/Login" method="post">
                 <h4>Use a local account to log in.</h4>
                 <hr />
                 <div asp-validation-summary="All" class="text-danger"></div>
@@ -29,17 +28,16 @@
                         </div>
                     </div>
                 <div class="form-group">
-                    <button type="submit" class="btn btn-primary">Log in</button>
+                    <button id="btnLogin" class="btn btn-primary">Log in</button>
                 </div>
                 <div class="form-group">
                     <p>
-                            <a id="forgot-password" asp-page="/ForgotPassword">Forgot your password?</a>
+                            <a id="forgot-password" asp-area="Identity" asp-page="/ForgotPassword">Forgot your password?</a>
                         </p>
                     <p>
-                            <a asp-page="/Register" asp-route-returnUrl="@Model.ReturnUrl">Register as a new user</a>
+                            <a asp-area="Identity" asp-page="/Account/Register">Register as a new user</a>
                         </p>
                 </div>
             </form>
-        </section>
     </div>
 </div>
