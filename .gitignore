@@ -1,8 +1,23 @@
 # we don't want to accidentally check our secret credentials into the repo
 appsettings.json
 
-# compil folder
-bin*
+# User-specific files
+*.suo
+*.user
+*.userosscache
+*.sln.docstates
 
-# compil folder
-obj*
+# User-specific files (MonoDevelop/Xamarin Studio)
+*.userprefs
+
+# Build results
+[Dd]ebug/
+[Dd]ebugPublic/
+[Rr]elease/
+[Rr]eleases/
+x64/
+x86/
+bld/
+[Bb]in/
+[Oo]bj/
+[Ll]og/
