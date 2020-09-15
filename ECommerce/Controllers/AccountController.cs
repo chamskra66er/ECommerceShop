@@ -56,7 +56,8 @@ namespace ECommerce.Controllers
                 if (result.Succeeded)
                 {
                     _logger.LogInformation("User logged in.");
-                    return Redirect(returnUrl);
+                    //return LocalRedirect(returnUrl);
+                    return RedirectToAction("Index", "Home");
                 }
                 else
                 {

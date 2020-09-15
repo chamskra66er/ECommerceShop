@@ -1,19 +1,19 @@
 ﻿using ECommerce.Areas.Identity.Pages.Account;
+using ECommerce.Models.Account;
 using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-//using static ECommerce.Areas.Identity.Pages.Account.LoginModel;
 
 namespace ECommerce.Components
 {
     public class LoginViewComponent :ViewComponent
     {
-        public LoginModel _model;
+        public LoginViewModel _model;
         public LoginViewComponent()
         {
-            _model = new LoginModel();
+            _model = new LoginViewModel();
         }
         public IViewComponentResult Invoke()
         {

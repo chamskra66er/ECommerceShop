@@ -1,12 +1,15 @@
-﻿@addTagHelper *, RazorPages
-@model ECommerce.Models.Account.LoginViewModel
+﻿@model ECommerce.Models.Account.LoginViewModel
 
-<div id="myModal" class="modal">
-    <div class="modal-content">
-        <span class="closeModal">&times;</span>
-        <h3>Войти на сайт.</h3>
+@{
+    ViewData["Title"] = "Log in";
+}
+
+<h1>@ViewData["Title"]</h1>
+<div class="row">
+    <div class="col-md-4">
         <section>
-            <form id="account" asp-controller="Account" asp-action="Login" method="post">
+            <form id="account" method="post">
+                <h4>Use a local account to log in.</h4>
                 <hr />
                 <div asp-validation-summary="All" class="text-danger"></div>
                 <div class="form-group">
@@ -20,25 +23,29 @@
                     <span asp-validation-for="Password" class="text-danger"></span>
                 </div>
                 <div class="form-group">
-                        <div class="checkbox">
-                            <label asp-for="RememberMe">
-                                <input asp-for="RememberMe" />
-                                @Html.DisplayNameFor(m => m.RememberMe)
-                            </label>
-                        </div>
+                    <div class="checkbox">
+                        <label asp-for="RememberMe">
+                            <input asp-for="RememberMe" />
+                            @Html.DisplayNameFor(m => m.RememberMe)
+                        </label>
                     </div>
+                </div>
                 <div class="form-group">
                     <button type="submit" class="btn btn-primary">Log in</button>
                 </div>
-                <div class="form-group" style="display:inline-block">
+                <div class="form-group">
                     <p>
-                            <a id="forgot-password" asp-page="/ForgotPassword">Forgot your password?</a>
-                        </p>
+                        <a id="forgot-password" @*asp-page="./ForgotPassword"*@>Forgot your password?</a>
+                    </p>
                     <p>
-                            <a asp-page="/Register" asp-route-returnUrl="@Model.ReturnUrl">Register as a new user</a>
-                        </p>
+                        <a @*asp-page="./Register" asp-route-returnUrl="@Model.ReturnUrl"*@>Register as a new user</a>
+                    </p>
                 </div>
             </form>
         </section>
     </div>
 </div>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}
