@@ -1,2 +1,8 @@
 # we don't want to accidentally check our secret credentials into the repo
 appsettings.json
+
+# compil folder
+bin*
+
+# compil folder
+obj*
