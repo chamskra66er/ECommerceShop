@@ -35,17 +35,15 @@
                 </div>
             </div>
         </nav>
-        <div class="catalogLine border-bottom">
+        <div class="catalogLine border-bottom">            
             <div class="k_centered">
-                <div style="color: #ffffff; font-size:20px;">
-                    <a class="catalogLine__mainLink">Каталог</a>
-                </div>
+                @await Component.InvokeAsync("Catalog")
                 <div class="dropDiscount">
                     <button class="dropbtn">Скидки</button>
                     <div class="dropdown-content">
-                        <a href="#">Link 1 dkjfkdhfsdhjdhsjdgfsgd</a>
-                        <a href="#">Link 2</a>
-                        <a href="#">Link 3</a>
+                        <a href="#">Акции</a>
+                        <hr />
+                        <a href="#">Уцененные товары</a>
                     </div>
                 </div>
             </div>
