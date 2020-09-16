@@ -13,5 +13,6 @@ namespace ECommerce.Data
         public string Img3 { get; set; }
         public string Img4 { get; set; }
         public string Img5 { get; set; }
+		public int  ProductId {get; set;}
     }
 }

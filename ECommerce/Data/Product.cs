@@ -10,7 +10,7 @@ namespace ECommerce.Data
         public int Id { get; set; }
         public int Name { get; set; }
         public int Brand { get; set; }
-        public Image Image { get; set; }
+        public virtual Image Image { get; set; }
         public double Price { get; set; }
         public int Rait { get; set; }
         public string Color { get; set; }
