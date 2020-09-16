@@ -10,7 +10,8 @@
 </head>
 <body>
     <header>
-        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
+        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom"
+             id="navHeader">
             <div class="container">
                 <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">ECommerce</a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse"
@@ -34,6 +35,21 @@
                 </div>
             </div>
         </nav>
+        <div class="catalogLine border-bottom">
+            <div class="k_centered">
+                <div style="color: #ffffff; font-size:20px;">
+                    <a class="catalogLine__mainLink">Каталог</a>
+                </div>
+                <div class="dropDiscount">
+                    <button class="dropbtn">Скидки</button>
+                    <div class="dropdown-content">
+                        <a href="#">Link 1 dkjfkdhfsdhjdhsjdgfsgd</a>
+                        <a href="#">Link 2</a>
+                        <a href="#">Link 3</a>
+                    </div>
+                </div>
+            </div>
+        </div>
     </header>
     <div class="container">
         <main role="main" class="pb-3">

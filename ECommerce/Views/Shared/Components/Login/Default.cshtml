@@ -1,9 +1,8 @@
-﻿@addTagHelper *, RazorPages
-@model ECommerce.Models.Account.LoginViewModel
+﻿@model ECommerce.Models.Account.LoginViewModel
 
 <div id="myModal" class="modal">
     <div class="modal-content">
-        <span class="closeModal">&times;</span>
+        <span class="closeModal" href="#">&times;</span>
         <h3>Войти на сайт.</h3>
         <section>
             <form id="account" asp-controller="Account" asp-action="Login" method="post">
