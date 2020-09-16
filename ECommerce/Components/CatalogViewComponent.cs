@@ -1,22 +1,19 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using ECommerce.Models.Account;
+﻿using ECommerce.Services;
 using Microsoft.AspNetCore.Mvc;
 
 namespace ECommerce.Components
 {
     public class CatalogViewComponent : ViewComponent
     {
-        public LoginViewModel _model;
-        public CatalogViewComponent()
+        private readonly ICatalog _catalog;
+
+        public CatalogViewComponent(ICatalog catalog)
         {
-            _model = new LoginViewModel();
+            _catalog = catalog;
         }
         public IViewComponentResult Invoke()
         {
-            return View(_model);
+            return View(_catalog.GetCatalogs());
         }
     }
 }

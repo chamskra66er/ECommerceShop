@@ -12,6 +12,7 @@ using ECommerce.Data;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using ECommerce.Services;
 
 namespace ECommerce
 {
@@ -32,6 +33,9 @@ namespace ECommerce
                     Configuration.GetConnectionString("DefaultConnection")));
             services.AddDefaultIdentity<IdentityUser>(options => options.SignIn.RequireConfirmedAccount = true)
                 .AddEntityFrameworkStores<ApplicationDbContext>();
+
+            services.AddScoped<ICatalog, CatalogService>();
+
             services.AddControllersWithViews();
             services.AddRazorPages();
         }
