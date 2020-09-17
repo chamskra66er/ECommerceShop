@@ -19,23 +19,25 @@
                     <span asp-validation-for="Password" class="text-danger"></span>
                 </div>
                 <div class="form-group">
-                        <div class="checkbox">
-                            <label asp-for="RememberMe">
-                                <input asp-for="RememberMe" />
-                                @Html.DisplayNameFor(m => m.RememberMe)
-                            </label>
-                        </div>
+                    <div class="checkbox">
+                        <label asp-for="RememberMe">
+                            <input asp-for="RememberMe" />
+                            @Html.DisplayNameFor(m => m.RememberMe)
+                        </label>
                     </div>
+                </div>
                 <div class="form-group">
-                    <button type="submit" class="btn btn-primary">Log in</button>
+                    <button type="submit" class="btn btn-primary" style="display:inline-block; width:150px;">
+                        LogIn
+                    </button>
+                    <a asp-action="Register" asp-controller="Account" class="btn btn-success" style="width:150px; margin-left:100px;">
+                        Register
+                    </a>
                 </div>
                 <div class="form-group" style="display:inline-block">
                     <p>
-                            <a id="forgot-password" asp-page="/ForgotPassword">Forgot your password?</a>
-                        </p>
-                    <p>
-                            <a asp-page="/Register" asp-route-returnUrl="@Model.ReturnUrl">Register as a new user</a>
-                        </p>
+                        <a id="forgot-password" asp-controller="Account" asp-action="ForgotPassword">Забыли пароль?</a>
+                    </p>
                 </div>
             </form>
         </section>

@@ -1,15 +1,11 @@
 ﻿@model ECommerce.Models.Account.LoginViewModel
 
-@{
-    ViewData["Title"] = "Log in";
-}
 
-<h1>@ViewData["Title"]</h1>
 <div class="row">
-    <div class="col-md-4">
+    <div class="col-lg-4">
+        <h3>Войти на сайт.</h3>
         <section>
             <form id="account" method="post">
-                <h4>Use a local account to log in.</h4>
                 <hr />
                 <div asp-validation-summary="All" class="text-danger"></div>
                 <div class="form-group">
@@ -31,14 +27,16 @@
                     </div>
                 </div>
                 <div class="form-group">
-                    <button type="submit" class="btn btn-primary">Log in</button>
+                    <button type="submit" class="btn btn-primary" style="display:inline-block; width:130px;">
+                        LogIn
+                    </button>
+                    <a asp-action="Register" asp-controller="Account" class="btn btn-success" style="width:130px; margin-left:82px;">
+                        Register
+                    </a>
                 </div>
                 <div class="form-group">
                     <p>
-                        <a id="forgot-password" @*asp-page="./ForgotPassword"*@>Forgot your password?</a>
-                    </p>
-                    <p>
-                        <a @*asp-page="./Register" asp-route-returnUrl="@Model.ReturnUrl"*@>Register as a new user</a>
+                        <a id="forgot-password" asp-controller="Account" asp-action="ForgotPassword">Забыли пароль?</a>
                     </p>
                 </div>
             </form>

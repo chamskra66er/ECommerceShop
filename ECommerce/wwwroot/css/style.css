@@ -132,7 +132,6 @@
 .searchBtn {
 	height: 50px;
 	width: 50px;
-	width: 50px;
 	margin-left: -5px;
 	background: rgba(192,192,192,0.4);
 	border: 0;
@@ -165,7 +164,6 @@
 	padding: 20px;
 	border: 1px solid #888;
 	width: 450px;
-	height:475px;
 	display:block;
 }
 
