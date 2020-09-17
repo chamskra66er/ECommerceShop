@@ -3,19 +3,16 @@
 <div class="dropClick">
     <button onclick="myFunction()" class="dropbtnClick">Каталог</button>
     <div id="myDropdown" class="dropClick-content">
-        @*<a href="#home">Home</a>
-        <hr />
-        <a href="#about">About</a>
-        <hr />
-        <a href="#contact">Contact</a>*@
         @{
             int i = 1;
+            string cl = "";
             foreach (var item in Model)
             {
-                <a href="#">@item.Name</a>
+                cl = $"fa {item.AwesomeIcon} fa-lg";
+                <a href="#"><i class="fa @item.AwesomeIcon fa-lg" style="padding-left:10px; padding-right:10px;"></i>@item.Name</a>
                 if(i<Model.Count())
                 {
-                    <hr/>
+                    <hr style="margin-top: 0; margin-bottom: 0;">
                 }
                 i++;
             }

@@ -10,5 +10,6 @@ namespace ECommerce.Data
         public int Id { get; set; }
         public string Name { get; set; }
         public string AwesomeIcon { get; set; }
+        public IEnumerable<SubCatalog> SubCatalogs { get; set; }
     }
 }
