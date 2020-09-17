@@ -1,8 +1,7 @@
 ﻿using ECommerce.Data;
-using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Threading.Tasks;
+using Microsoft.EntityFrameworkCore;
 
 namespace ECommerce.Services
 {
@@ -18,7 +17,7 @@ namespace ECommerce.Services
         }
         public IEnumerable<Catalog> GetCatalogs()
         { 
-            return _context.Catalogs;
+            return _context.Catalogs.Include(x=>x.SubCatalogs);
         }
             
     }

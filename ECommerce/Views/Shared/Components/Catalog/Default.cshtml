@@ -3,19 +3,55 @@
 <div class="dropClick">
     <button onclick="myFunction()" class="dropbtnClick">Каталог</button>
     <div id="myDropdown" class="dropClick-content">
-        @{
+        <a asp-controller="Home" asp-action="TVShow">
+            <i class="fa fa-television fa-lg" style="padding-left:10px; padding-right:10px;"></i>
+            Телевизоры, аудио, Hi-Fi
+        </a>
+        <a asp-controller="Home" asp-action="LapShow">
+            <i class="fa fa-laptop fa-lg" style="padding-left:10px; padding-right:10px;"></i>
+            Ноутбуки и компьютеры
+        </a>
+        <a asp-controller="Home" asp-action="MobilShow">
+            <i class="fa fa-mobile fa-lg" style="padding-left:10px; padding-right:10px;"></i>
+            Смартфоны и гаджеты
+        </a>
+        <a asp-controller="Home" asp-action="CameraShow">
+            <i class="fa fa-camera fa-lg" style="padding-left:10px; padding-right:10px;"></i>
+            Фото и видео
+        </a>
+        <a asp-controller="Home" asp-action="CookShow">
+            <i class="fa fa-home fa-lg" style="padding-left:10px; padding-right:10px;"></i>
+            Техника для кухни
+        </a>
+        <a asp-controller="Home" asp-action="HomeShow">
+            <i class="fa fa-television fa-lg" style="padding-left:10px; padding-right:10px;"></i>
+            Техника для дома
+        </a>
+        <a asp-controller="Home" asp-action="HealtShow">
+            <i class="fa fa-medkit fa-lg" style="padding-left:10px; padding-right:10px;"></i>
+            Красота и здоровье
+        </a>
+        <a asp-controller="Home" asp-action="GameShow">
+            <i class="fa fa-gamepad fa-lg" style="padding-left:10px; padding-right:10px;"></i>
+            Игры и софт, развлечения
+        </a>
+        <a asp-controller="Home" asp-action="AccessoryShow">
+            <i class="fa fa-diamond fa-lg" style="padding-left:10px; padding-right:10px;"></i>
+            Аксессуары
+        </a>
+        @*@{
             int i = 1;
             string cl = "";
             foreach (var item in Model)
             {
                 cl = $"fa {item.AwesomeIcon} fa-lg";
                 <a href="#"><i class="fa @item.AwesomeIcon fa-lg" style="padding-left:10px; padding-right:10px;"></i>@item.Name</a>
-                if(i<Model.Count())
+                if (i < Model.Count())
                 {
                     <hr style="margin-top: 0; margin-bottom: 0;">
                 }
                 i++;
             }
-        }
+        }*@
     </div>
 </div>
