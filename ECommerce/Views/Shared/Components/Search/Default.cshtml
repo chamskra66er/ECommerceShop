@@ -1,0 +1,7 @@
+﻿@model ECommerce.Models.Home.SearchModel
+
+<div class="navbar-nav">
+    <form asp-controller="Search" asp-action="Search" method="post">
+        <input asp-for="SearchQuery" type="text" class="homeSearch" placeholder="Искать..." />
+    </form>
+</div>
