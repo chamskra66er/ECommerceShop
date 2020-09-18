@@ -39,19 +39,12 @@
                 </div>
             </div>
         </nav>
-        <div class="catalogLine border-bottom">            
+        <div class="catalogLine border-bottom">
             <div class="k_centered">
-                @await Component.InvokeAsync("Catalog")
-                <div class="dropDiscount">
-                    <button class="dropbtn">Скидки</button>
-                    <div class="dropdown-content">
-                        <a href="#">Акции</a>
-                        <a href="#">Уцененные товары</a>
-                    </div>
-                </div>
+                <partial name="_CatalogPartial"/>
             </div>
         </div>
-    </header>
+    </header>   
     <div class="container">
         <main role="main" class="pb-3">
             @RenderBody()
@@ -66,6 +59,7 @@
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
     <script src="~/js/login.js"></script>
+    @*<script src="~/js/catalog.js"></script>*@
     <script src="~/js/site.js" asp-append-version="true"></script>
     @RenderSection("Scripts", required: false)
 </body>

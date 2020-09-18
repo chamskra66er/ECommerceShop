@@ -16,21 +16,26 @@ window.addEventListener("click", function (e) {
 	}
 });
 
-function myFunction() {
-    document.getElementById("myDropdown").classList.toggle("show");
-}
+//function myFunction() {
+//    document.getElementById("myDropdown").classList.toggle("show");
+//}
 
-// Close the dropdown if the user clicks outside of it
-window.onclick = function (event) {
-    if (!event.target.matches('.dropbtnClick')) {
+//// Close the dropdown if the user clicks outside of it
+//window.onclick = function (event) {
+//    if (!event.target.matches('.dropbtnClick')) {
 
-        var dropdowns = document.getElementsByClassName("dropClick-content");
-        var i;
-        for (i = 0; i < dropdowns.length; i++) {
-            var openDropdown = dropdowns[i];
-            if (openDropdown.classList.contains('show')) {
-                openDropdown.classList.remove('show');
-            }
-        }
-    }
-}
+//        var dropdowns = document.getElementsByClassName("dropClick-content");
+//        var i;
+//        for (i = 0; i < dropdowns.length; i++) {
+//            var openDropdown = dropdowns[i];
+//            if (openDropdown.classList.contains('show')) {
+//                openDropdown.classList.remove('show');
+//            }
+//        }
+//    }
+//}
+
+////functions for shoing subCatalogs
+//function showTv() {
+//    console.log("mouse");
+//}

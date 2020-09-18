@@ -1,9 +1,9 @@
 ﻿@model IEnumerable<Catalog>
 
 <div class="dropClick">
-    <button onclick="myFunction()" class="dropbtnClick">Каталог</button>
+    <button onclick="myFunction()" class="dropbtnClick" id="btnCatalog">Каталог</button>
     <div id="myDropdown" class="dropClick-content">
-        <a asp-controller="Home" asp-action="TVShow">
+        <a asp-controller="Home" asp-action="TVShow" id="showTv">
             <i class="fa fa-television fa-lg" style="padding-left:10px; padding-right:10px;"></i>
             Телевизоры, аудио, Hi-Fi
         </a>
@@ -54,4 +54,4 @@
             }
         }*@
     </div>
-</div>
+        </div>
