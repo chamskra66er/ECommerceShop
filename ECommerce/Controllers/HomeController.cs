@@ -6,16 +6,20 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using ECommerce.Models;
+using ECommerce.Data;
+using ECommerce.Services;
 
 namespace ECommerce.Controllers
 {
     public class HomeController : Controller
     {
         private readonly ILogger<HomeController> _logger;
+        private readonly ICatalog _catalogs;
 
-        public HomeController(ILogger<HomeController> logger)
+        public HomeController(ILogger<HomeController> logger, ICatalog catalogs)
         {
             _logger = logger;
+            _catalogs = catalogs;
         }
 
         public IActionResult Index()
@@ -32,6 +36,22 @@ namespace ECommerce.Controllers
         public IActionResult Error()
         {
             return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
+        }
+        public IActionResult TVShow(string id)
+        {
+            IEnumerable<Product> _products;
+            string viewName = null;
+
+            switch (id)
+            {
+                case "tv":
+                    //_products = 
+                    //viewName = All
+                    break;
+                default:
+                    break;
+            }
+            return View();
         }
     }
 }

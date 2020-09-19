@@ -1,4 +1,23 @@
 ﻿
+//var ctl1 = document.getElementById('ctl1');
+//var ctl2 = document.getElementById('ctl2');
+
+
+//function setStyle() {
+//    ctl2.setAttribute("style", "color:red");
+//}
+//function remStyle() {
+//    ctl2.setAttribute("style", "color:black");    
+//}
+
+//ctl1.addEventListener("mouseover", setStyle);
+//window.addEventListener("mouseup", remStyle);
+
+//function myFunction() {
+//    ctl2.setAttribute("style", "color:black"); 
+//}
+
+
 //var element = document.getElementById('showTv');
 //var header = document.querySelector("header");
 
