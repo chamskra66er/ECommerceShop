@@ -14,12 +14,12 @@ namespace ECommerce.Controllers
     public class HomeController : Controller
     {
         private readonly ILogger<HomeController> _logger;
-        private readonly ICatalog _catalogs;
+        private readonly ICatalog _catalogContext;
 
         public HomeController(ILogger<HomeController> logger, ICatalog catalogs)
         {
             _logger = logger;
-            _catalogs = catalogs;
+            _catalogContext = catalogs;
         }
 
         public IActionResult Index()
@@ -39,14 +39,13 @@ namespace ECommerce.Controllers
         }
         public IActionResult TVShow(string id)
         {
-            IEnumerable<Product> _products;
+            //IEnumerable<Product> _products;
             string viewName = null;
 
             switch (id)
             {
                 case "tv":
-                    //_products = 
-                    //viewName = All
+                    //var model = _catalogContext.GetSubCatalogs().Where(x=>x.SubName==id)
                     break;
                 default:
                     break;

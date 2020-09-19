@@ -9,8 +9,6 @@ namespace ECommerce.Services
     {
         private readonly ApplicationDbContext _context;
 
-        public CatalogService() { }
-
         public CatalogService(ApplicationDbContext context)
         {
             _context = context;
@@ -18,6 +16,10 @@ namespace ECommerce.Services
         public IEnumerable<Catalog> GetCatalogs()
         { 
             return _context.Catalogs.Include(x=>x.SubCatalogs);
+        }
+        public IEnumerable<SubCatalog> GetSubCatalogs()
+        {
+            return _context.SubCatalogs;
         }
             
     }

@@ -1,6 +1,7 @@
-﻿    <div class="mybar">
+﻿
+<div class="mybar">
         <div class="dropCatalog" >
-            <a asp-controller="Home" asp-action="TVShow" class="dropbtnCatalog">
+            <a asp-controller="Home" asp-action="TVShow" asp-route-id="tv" class="dropbtnCatalog">
                 <i class="fa fa-television fa-lg" style="padding-left:5px; padding-right:5px;"></i>
                 Телевизоры, аудио
             </a>
@@ -8,15 +9,14 @@
                 <div class="myrow" >
                     <div class="mycolumn">
                         <br />
-                        <a asp-action="TVShow" asp-controller="Home" asp-route-id="tv" style="text-decoration:underline;">Телевизоры</a>
-                        <a href="#">Link 1</a>
-                        <a href="#">Link 2</a>
-                        <a href="#">Link 3</a>
-                        
+                        <a asp-action="TVShow" asp-controller="Home" asp-route-id="tv0" style="text-decoration:underline;"><b>Телевизоры</b></a>
+                        <a asp-action="TVShow" asp-controller="Home" asp-route-id="tv1">4K Телевизоры</a>
+                        <a asp-action="TVShow" asp-controller="Home" asp-route-id="tv2">Смарт-телевизоры</a>
+                        <a asp-action="TVShow" asp-controller="Home" asp-route-id="tv3">Full HD-телевизоры</a>     
                     </div>
                     <div class="mycolumn">
                         <br />
-                        <a asp-action="TVShow" asp-controller="Home" style="text-decoration:underline;">Цифровое ТВ</a>
+                        <a asp-action="TVShow" asp-controller="Home" style="text-decoration:underline;"><b>Цифровое ТВ</b></a>
                         <a href="#">Link 1</a>
                         <a href="#">Link 2</a>
                         <a href="#">Link 3</a>
@@ -25,7 +25,7 @@
 
                     <div class="mycolumn">
                         <br />
-                        <a asp-action="TVShow" asp-controller="Home" style="text-decoration:underline;">Домашний кинотеатр</a>
+                        <a asp-action="TVShow" asp-controller="Home" style="text-decoration:underline;"><b>Домашний кинотеатр</b></a>
                         <a href="#">Link 1</a>
                         <a href="#">Link 2</a>
                         <a href="#">Link 3</a>
@@ -36,36 +36,36 @@
 
         </div>
     </div>
-    <div class="mybar2">
-        <div class="dropCatalog2">
-            <a asp-controller="Home" asp-action="LapShow" class="dropbtnCatalog2" id="ctl2">
-                <i class="fa fa-laptop fa-lg" style="padding-left:5px; padding-right:5px;"></i>
-                Ноутбуки и компьютеры
-            </a>
-            <div class="catalog-content2">
-                <div class="myrow2">
-                    <div class="mycolumn2">
-                        <br />
-                        <a asp-action="LapShow" asp-controller="Home" style="text-decoration:underline;">Ноутбуки</a>
-                        <a href="#">Link 1</a>
-                        <a href="#">Link 2</a>
-                        <a href="#">Link 3</a>
-                    </div>
-                    <div class="mycolumn2">
-                        <br />
-                        <a asp-action="LapShow" asp-controller="Home" style="text-decoration:underline;">Компьютеры и мониторы</a>
-                        <a href="#">Link 1</a>
-                        <a href="#">Link 2</a>
-                        <a href="#">Link 3</a>
-                    </div>
-                    <div class="mycolumn2">
-                        <br />
-                        <a asp-action="LapShow" asp-controller="Home" style="text-decoration:underline;">Компьютерные комплектующие</a>
-                        <a href="#">Link 1</a>
-                        <a href="#">Link 2</a>
-                        <a href="#">Link 3</a>
-                    </div>
+<div class="mybar2">
+    <div class="dropCatalog2">
+        <a asp-controller="Home" asp-action="LapShow" class="dropbtnCatalog2" id="ctl2">
+            <i class="fa fa-laptop fa-lg" style="padding-left:5px; padding-right:5px;"></i>
+            Ноутбуки и компьютеры
+        </a>
+        <div class="catalog-content2">
+            <div class="myrow2">
+                <div class="mycolumn2">
+                    <br />
+                    <a asp-action="LapShow" asp-controller="Home" style="text-decoration:underline;">Ноутбуки</a>
+                    <a href="#">Link 1</a>
+                    <a href="#">Link 2</a>
+                    <a href="#">Link 3</a>
+                </div>
+                <div class="mycolumn2">
+                    <br />
+                    <a asp-action="LapShow" asp-controller="Home" style="text-decoration:underline;">Компьютеры и мониторы</a>
+                    <a href="#">Link 1</a>
+                    <a href="#">Link 2</a>
+                    <a href="#">Link 3</a>
+                </div>
+                <div class="mycolumn2">
+                    <br />
+                    <a asp-action="LapShow" asp-controller="Home" style="text-decoration:underline;">Компьютерные комплектующие</a>
+                    <a href="#">Link 1</a>
+                    <a href="#">Link 2</a>
+                    <a href="#">Link 3</a>
                 </div>
             </div>
         </div>
     </div>
+</div>

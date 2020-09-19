@@ -9,5 +9,6 @@ namespace ECommerce.Services
     public interface ICatalog
     {
        IEnumerable<Catalog> GetCatalogs();
+        IEnumerable<SubCatalog> GetSubCatalogs();
     }
 }

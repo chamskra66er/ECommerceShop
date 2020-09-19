@@ -284,6 +284,7 @@
 	background-color: white;
 	height: 250px;
 
+	margin-top:55px;
 }
 
 	/* Style links inside the columns */
@@ -293,7 +294,7 @@
 		/*padding: 16px;*/
 		text-decoration: none;
 		display: block;
-		text-align: center;
+		text-align: left;
 		margin-top: -20px;
 		font-size: 12px;
 	}
@@ -386,6 +387,8 @@
 	/*padding: 10px;*/
 	background-color: white;
 	height: 250px;
+
+	margin-top:55px;
 }
 
 	/* Style links inside the columns */
@@ -395,7 +398,7 @@
 		/*padding: 16px;*/
 		text-decoration: none;
 		display: block;
-		text-align: center;
+		text-align: left;
 		margin-top: -20px;
 		font-size: 12px;
 	}
