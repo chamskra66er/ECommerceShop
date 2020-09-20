@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.EntityFrameworkCore;
 
 namespace ECommerce.Services
 {
@@ -19,6 +20,11 @@ namespace ECommerce.Services
 
         public IEnumerable<Product> GetProductsBySubCatalogIds(int? id1, int? id2, int? id3) =>
             _context.Products.Where(x=>x.SubCatalogId == id1 && 
-            x.SubCatalogId==id2 && x.SubCatalogId == id3);
+            x.SubCatalogId==id2 && x.SubCatalogId == id3).Include(l=>l.Image);
+
+        public IEnumerable<Product> Search(string query)
+        {
+            return _context.Products.Where(x => x.Name.Contains(query) || x.Brand.Contains(query));
+        }
     }
 }
