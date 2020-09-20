@@ -35,6 +35,7 @@ namespace ECommerce
                 .AddEntityFrameworkStores<ApplicationDbContext>();
 
             services.AddScoped<ICatalog, CatalogService>();
+            services.AddScoped<IProduct, ProductService>();
 
             services.AddControllersWithViews();
             services.AddRazorPages();
