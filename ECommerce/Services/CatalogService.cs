@@ -21,6 +21,10 @@ namespace ECommerce.Services
         {
             return _context.SubCatalogs;
         }
-            
+
+        public IEnumerable<SubCatalog> GetSubCatalogsByCatalogId(int? id)
+        {
+            return _context.SubCatalogs.Where(x => x.CatalogId == id);
+        }
     }
 }

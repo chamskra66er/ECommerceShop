@@ -1,0 +1,8 @@
+﻿@model IEnumerable<Product>
+
+<h3>@ViewData["Message"]</h3>
+
+@foreach (var item in Model)
+{
+    <div>Имя @item.Name   категория @item.Category</div>
+}

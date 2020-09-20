@@ -10,5 +10,6 @@ namespace ECommerce.Services
     {
         IEnumerable<Catalog> GetCatalogs();
         IEnumerable<SubCatalog> GetSubCatalogs();
+        IEnumerable<SubCatalog> GetSubCatalogsByCatalogId(int? id);
     }
 }

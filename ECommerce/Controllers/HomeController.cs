@@ -15,11 +15,13 @@ namespace ECommerce.Controllers
     {
         private readonly ILogger<HomeController> _logger;
         private readonly ICatalog _catalogContext;
+        private readonly IProduct _product;
 
-        public HomeController(ILogger<HomeController> logger, ICatalog catalogs)
+        public HomeController(ILogger<HomeController> logger, ICatalog catalogs, IProduct product)
         {
             _logger = logger;
             _catalogContext = catalogs;
+            _product = product;
         }
 
         public IActionResult Index()
@@ -45,17 +47,24 @@ namespace ECommerce.Controllers
             switch (id)
             {
                 case "tv":
-                    //var model = _catalogContext.GetSubCatalogs().Where(x=>x.SubName==id)
-                    break;
+                    var model = _catalogContext.GetSubCatalogsByCatalogId(2);
+                    ViewData["Message"] = "Категории";
+                    return View("TVMain", model);
                     case "tv0":
                     //subid = 1
-                    break;
+                    var model0 = _product.GetProductsBySubCatalogId(1);
+                    ViewData["Message"] = "Телевизоры";
+                    return View(model0);
                 case "tv1":
                     //subid = 2
-                    break;
+                    var model1 = _product.GetProductsBySubCatalogId(2);
+                    ViewData["Message"] = "Цифровое ТВ";
+                    return View(model1);
                 case "tv2":
                     //subid = 3
-                    break;
+                    var model2 = _product.GetProductsBySubCatalogId(3);
+                    ViewData["Message"] = "Домашний кинотеатр";                   
+                    return View(model2);
                 default:
                     break;
             }

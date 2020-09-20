@@ -1,0 +1,19 @@
+﻿@model IEnumerable<SubCatalog>
+
+<h3>@ViewData["Message"]</h3>
+@{ 
+    int i = 0;
+}
+
+<div style="width:900px; float:right; margin:50px 100px 0 0">
+    @foreach (var item in Model)
+    {
+        
+        string routeId = $"tv{i}";
+        <div style="display:inline">
+            <img src="@item.ImgUrl" style="height:200px;" />
+            <a asp-action="TVShow" asp-controller="Home" asp-route-id="@routeId">@item.SubName</a>
+        </div>
+        i++;
+    }
+</div>
