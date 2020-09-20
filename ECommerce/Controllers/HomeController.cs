@@ -47,6 +47,15 @@ namespace ECommerce.Controllers
                 case "tv":
                     //var model = _catalogContext.GetSubCatalogs().Where(x=>x.SubName==id)
                     break;
+                    case "tv0":
+                    //subid = 1
+                    break;
+                case "tv1":
+                    //subid = 2
+                    break;
+                case "tv2":
+                    //subid = 3
+                    break;
                 default:
                     break;
             }

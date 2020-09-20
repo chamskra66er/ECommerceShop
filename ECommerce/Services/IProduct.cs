@@ -6,9 +6,8 @@ using System.Threading.Tasks;
 
 namespace ECommerce.Services
 {
-    public interface ICatalog
+    public interface IProduct
     {
-        IEnumerable<Catalog> GetCatalogs();
-        IEnumerable<SubCatalog> GetSubCatalogs();
+        IEnumerable<Product> GetProductsBySubCatalogId(int? id);
     }
 }
