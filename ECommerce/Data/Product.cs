@@ -17,5 +17,6 @@ namespace ECommerce.Data
         public double Weight { get; set; }
         public string Size { get; set; }
         public int SubCatalogId { get; set; }
+        public string Category { get; set; }
     }
 }
