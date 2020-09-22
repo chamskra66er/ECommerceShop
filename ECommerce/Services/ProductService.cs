@@ -15,6 +15,12 @@ namespace ECommerce.Services
         {
             _context = context;
         }
+
+        public IEnumerable<Product> GetProductByCategoryId(int? id)
+        {
+            return _context.Products.Where(x => x.CategoryId == id);
+        }
+
         public IEnumerable<Product> GetProductsBySubCatalogId(int? id) =>
             _context.Products.Where(x => x.SubCatalogId == id);
 
@@ -26,5 +32,6 @@ namespace ECommerce.Services
         {
             return _context.Products.Where(x => x.Name.Contains(query) || x.Brand.Contains(query));
         }
+
     }
 }

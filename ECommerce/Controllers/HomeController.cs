@@ -88,5 +88,10 @@ namespace ECommerce.Controllers
             }
             return View();
         }
+        public IActionResult CatDetail(int id)
+        {
+            var model = _product.GetProductByCategoryId(id);
+            return View(model);
+        }
     }
 }
