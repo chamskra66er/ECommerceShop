@@ -8,6 +8,7 @@ using Microsoft.Extensions.Logging;
 using ECommerce.Models;
 using ECommerce.Data;
 using ECommerce.Services;
+using ECommerce.Models.ProductModel;
 
 namespace ECommerce.Controllers
 {
@@ -53,6 +54,13 @@ namespace ECommerce.Controllers
                     case "tv0":
                     //subid = 1
                     var model0 = _product.GetProductsBySubCatalogId(1);
+
+                    var prod = new ProductViewModel 
+                    {
+                        Products = model0,
+                        id = "tv1"
+                    };
+
                     ViewData["Message"] = "Телевизоры";
                     return View(model0);
                 case "tv1":

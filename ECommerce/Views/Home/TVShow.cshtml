@@ -1,8 +1,13 @@
-﻿@model IEnumerable<Product>
+﻿@*@model IEnumerable<Product>*@
+@model ECommerce.Models.ProductModel.ProductViewModel
 
 <h3>@ViewData["Message"]</h3>
-
-@foreach (var item in Model)
-{
-    <div>Имя @item.Name   категория @item.Category</div>
-}
+<div style="display:flex;">
+    <div class="col-2">@await Component.InvokeAsync("Category", new { id = Model.id})</div>
+    <div class="col-6">
+        @foreach (var item in Model.Products)
+        {
+            <div>Имя @item.Name   категория @item.Category</div>
+        }
+    </div>
+</div>
