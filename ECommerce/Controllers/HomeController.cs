@@ -55,7 +55,7 @@ namespace ECommerce.Controllers
                     //subid = 1
                     var model0 = _product.GetProductsBySubCatalogId(1);
 
-                    var prod = new ProductViewModel 
+                    var prod0 = new ProductViewModel 
                     {
                         Products = model0,
                         id = "tv0"
@@ -63,17 +63,27 @@ namespace ECommerce.Controllers
 
                     ViewData["Message"] = "Телевизоры";
                     //return View(model0);
-                    return View(prod);
+                    return View(prod0);
                 case "tv1":
                     //subid = 2
                     var model1 = _product.GetProductsBySubCatalogId(2);
+                    var prod1 = new ProductViewModel
+                    {
+                        Products = model1,
+                        id = "tv1"
+                    };
                     ViewData["Message"] = "Цифровое ТВ";
-                    return View(model1);
+                    return View(prod1);
                 case "tv2":
                     //subid = 3
                     var model2 = _product.GetProductsBySubCatalogId(3);
+                    var prod2 = new ProductViewModel
+                    {
+                        Products = model2,
+                        id = id
+                    };
                     ViewData["Message"] = "Домашний кинотеатр";                   
-                    return View(model2);
+                    return View(prod2);
                 default:
                     break;
             }

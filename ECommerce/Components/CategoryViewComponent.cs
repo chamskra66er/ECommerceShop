@@ -26,6 +26,22 @@ namespace ECommerce.Components
                         "FULL HD-телевизоры"
                     };
                     break;
+                case "tv1":
+                    categories = new List<string>
+                    {
+                        "Триколор ТВ",
+                        "НТВ-Плюс",
+                        "МТС"
+                    };
+                    break;
+                case "tv2":
+                    categories = new List<string>
+                    {
+                        "Домашний кинотеатр",
+                        "DVD, Blu-Ray",
+                        "Ресиверы"
+                    };
+                    break;
 
                 default:
                     break;

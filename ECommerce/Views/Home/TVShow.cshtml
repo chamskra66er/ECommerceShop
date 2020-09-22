@@ -4,7 +4,7 @@
 
 <div style="display:flex;">
     <div class="col-2">@await Component.InvokeAsync("Category", new { id = Model.id})</div>
-    <div class="col-6">
+    <div class="col-10">
         <h3>@ViewData["Message"]</h3>
         @foreach (var item in Model.Products)
         {
