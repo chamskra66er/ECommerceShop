@@ -18,5 +18,6 @@ namespace ECommerce.Data
         public string Size { get; set; }
         public int SubCatalogId { get; set; }
         public string Category { get; set; }
+        public int CategoryId { get; set; }
     }
 }

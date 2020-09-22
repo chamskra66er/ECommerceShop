@@ -51,7 +51,7 @@ namespace ECommerce.Controllers
                     var model = _catalogContext.GetSubCatalogsByCatalogId(2);
                     ViewData["Message"] = "Категории";
                     return View("TVMain", model);
-                    case "tv0":
+                case "tv0":
                     //subid = 1
                     var model0 = _product.GetProductsBySubCatalogId(1);
 
@@ -62,7 +62,6 @@ namespace ECommerce.Controllers
                     };
 
                     ViewData["Message"] = "Телевизоры";
-                    //return View(model0);
                     return View(prod0);
                 case "tv1":
                     //subid = 2
