@@ -18,7 +18,7 @@ namespace ECommerce.Components
             List<string> categories = null;
             switch (id)
             {
-                case "tv1":
+                case "tv0":
                     categories = new List<string>
                     { 
                         "4К Телевизоры",
