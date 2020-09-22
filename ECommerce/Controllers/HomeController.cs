@@ -58,11 +58,12 @@ namespace ECommerce.Controllers
                     var prod = new ProductViewModel 
                     {
                         Products = model0,
-                        id = "tv1"
+                        id = "tv0"
                     };
 
                     ViewData["Message"] = "Телевизоры";
-                    return View(model0);
+                    //return View(model0);
+                    return View(prod);
                 case "tv1":
                     //subid = 2
                     var model1 = _product.GetProductsBySubCatalogId(2);
