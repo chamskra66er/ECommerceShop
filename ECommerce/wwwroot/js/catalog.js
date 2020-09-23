@@ -1,4 +1,15 @@
-﻿
+﻿const select = document.querySelector("#myselect");
+const options = document.querySelectorAll("#myselect option");
+
+select.addEventListener("change", function () {
+    const url = this.options[this.selectedIndex].dataset.url;
+    if (url) {
+        location.href = url;
+    }
+});
+
+
+
 //var ctl1 = document.getElementById('ctl1');
 //var ctl2 = document.getElementById('ctl2');
 

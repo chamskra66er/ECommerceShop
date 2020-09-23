@@ -414,3 +414,8 @@
 	display: table;
 	clear: both;
 }
+.headCount {
+	font-size: 24px;
+	padding-left: 20px;
+	color: #9F9B8E;
+}

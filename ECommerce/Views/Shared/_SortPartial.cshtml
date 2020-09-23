@@ -1,0 +1,22 @@
+﻿<h4>Partial view</h4>
+
+<div style="display:flex;">
+    <select class="custom-select mr-sm-2 edit_input" id="myselect" style="margin-bottom:10px;">
+        <option data-url="">Сортировать по</option>
+        <option data-url="SortAlphabet">Алфавиту</option>
+        <option data-url="Sort">Популярности</option>
+        <option data-url="SortPrice">Цене</option>
+    </select>
+</div>
+
+@*<script>
+    const select = document.querySelector("#myselect");
+    const options = document.querySelectorAll("#myselect option");
+
+    select.addEventListener("change", function () {
+        const url = this.options[this.selectedIndex].dataset.url;
+        if (url) {
+            location.href = url;
+        }
+    });
+</script>*@

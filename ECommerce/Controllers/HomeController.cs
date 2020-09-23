@@ -88,9 +88,11 @@ namespace ECommerce.Controllers
             }
             return View();
         }
+
         public IActionResult CatDetail(int id)
-        {
+        {           
             var model = _product.GetProductByCategoryId(id);
+            ViewData["Message"] = model.FirstOrDefault().Category;
             return View(model);
         }
     }
