@@ -26,4 +26,4 @@ bld/
 
 *.mod
 
-/images/*
+images/
