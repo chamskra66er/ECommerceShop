@@ -25,3 +25,5 @@ bld/
 *.o
 
 *.mod
+
+**/images/*

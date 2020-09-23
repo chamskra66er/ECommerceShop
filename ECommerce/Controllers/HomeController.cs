@@ -95,5 +95,18 @@ namespace ECommerce.Controllers
             ViewData["Message"] = model.FirstOrDefault().Category;
             return View(model);
         }
+        
+        [HttpPost]
+        public JsonResult SortAlphabet(string receivedData)
+        {
+
+            //var jss = new JavaScriptSerializer();
+            //var dataObject = jss.Deserialize(receivedData);
+
+            //return RedirectResult("Index", "Home");
+            return Json(
+                (new { redirectTo = Url.Action("Index", "Home") })
+                );
+        }
     }
 }
