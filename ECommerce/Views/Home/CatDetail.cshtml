@@ -1,5 +1,9 @@
 ﻿@model IEnumerable<Product>
 
+@{ 
+    int catId = Model.FirstOrDefault().CategoryId;
+}
+
 <div style="display:flex;">
     <div class="col-2">
         To do viewComponents
@@ -9,7 +13,8 @@
             <h3>@ViewData["Message"]</h3>
             <span class="headCount">@Model.Count()</span>
             <div style="display: flex;">
-                <partial name="_SortPartial"/>
+                @*<partial name="_SortPartial"/>*@
+                @await Component.InvokeAsync("Sort", new { id = catId})
             </div>
         </div>
         @foreach (var item in Model)

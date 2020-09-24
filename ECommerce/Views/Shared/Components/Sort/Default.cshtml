@@ -1,10 +1,12 @@
-﻿<h4>Sort viewComponent</h4>
+﻿@model ECommerce.Models.Home.SortModel
+
+<h4>Sort viewComponent</h4>
 
 <div style="display:flex;">
     <select class="custom-select mr-sm-2 edit_input" id="myselect" style="margin-bottom:10px;">
         <option value="">Сортировать по</option>
-        <option data-url="Home/SortAlphabet" value="1">Алфавиту</option>
-        <option data-url="Home/SortRait" value="1">Популярности</option>
-        <option data-url="Home/SortPrice" value="1">Цене</option>
+        <option data-url="Home/SortAlphabet" value="@Model.CategoryId">Алфавиту</option>
+        <option data-url="Home/SortRait" value="@Model.CategoryId">Популярности</option>
+        <option data-url="Home/SortPrice" value="@Model.CategoryId">Цене</option>
     </select>
 </div>
