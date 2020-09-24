@@ -1,34 +1,12 @@
-﻿var select = document.getElementById('myselect');
+﻿const select = document.querySelector("#myselect");
 const options = document.querySelectorAll("#myselect option");
 
-function setSelect() {
-    var dataToSend = {
-        Type: this.options[this.selectedIndex].value,
-    };
-    var jsonData = JSON.stringify(dataToSend);
-    $.ajax({
-        url: "/Home/SortAlphabet",
-        type: "POST",
-        data: { jsonData },
-        contentType: "application/json; charset=utf-8",
-    }).done(function (url) {
-        window.location.href = url.redirectTo;
-    });
-}
+select.addEventListener("change", function () {
 
-select.addEventListener('change', setSelect);
-
-//const select = document.querySelector("#myselect");
-//const options = document.querySelectorAll("#myselect option");
-
-//select.addEventListener("change", function () {
-//    window.location.href = "@Url.Action("SortAlphabet","Controller")";
-
-//    const url = this.options[this.selectedIndex].dataset.url;
-//    const url = this.options[this.selectedIndex].value;
-//    if (url) {
-//        window.location.href = url;
-//});
+    const url = this.options[this.selectedIndex].dataset.url;
+    const catId = this.options[this.selectedIndex].value;
+    window.location.href = `${window.location.origin}/${url}/${catId}`; 
+});
 
 
 
