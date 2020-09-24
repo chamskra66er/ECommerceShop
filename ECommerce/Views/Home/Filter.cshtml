@@ -1,0 +1,26 @@
+﻿@model IEnumerable<Product> 
+
+<div class="col-8" style="margin: 0 0 0 auto;">
+    <div style="display:flex;">
+        <h3>@ViewData["Message"]</h3>
+        <span class="headCount">@Model.Count()</span>
+    </div>
+    @if (Model.Count()>0)
+    {
+        <table class="table table-hover">
+            <tr>
+                <th>Name</th>
+                <th>Price</th>
+                <th>Rait</th>
+            </tr>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>@item.Name</td>
+                    <td>@item.Price.ToString("C2")</td>
+                    <td>@item.Rait</td>
+                </tr>
+            }
+        </table>
+    }
+</div>

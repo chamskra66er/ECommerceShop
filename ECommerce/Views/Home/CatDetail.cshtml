@@ -1,7 +1,11 @@
 ﻿@model IEnumerable<Product>
 
 @{ 
-    int catId = Model.FirstOrDefault().CategoryId;
+    int catId = 0;
+    if(Model.Count()>=1)
+    {
+        catId = Model.FirstOrDefault().CategoryId;
+    }
 }
 
 <div style="display:flex;">

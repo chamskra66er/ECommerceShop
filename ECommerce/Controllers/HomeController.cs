@@ -131,14 +131,28 @@ namespace ECommerce.Controllers
         [HttpPost]
         public IActionResult Filter(FilterModel filterModel)
         {
+            string message = null;
             int cateId = filterModel.CategoryId;
-            var model = _productService.GetProductByCategoryId(cateId).Where(x => x.Price >= filterModel.PriceDown
-            && x.Price <= filterModel.PriceUp);
+            IEnumerable<Product> model = _productService.GetProductByCategoryId(cateId);
+            IList<Product> viewModel = new List<Product>();
 
-            foreach (var item in filterModel.Brands)
+            if (filterModel.Brands != null)
             {
-                model.Where(x=>x.Brand == item);
+                foreach (var item in filterModel.Brands)
+                {
+                    var view = model.Where(x => x.Brand == item).FirstOrDefault();
+                    viewModel.Add(view); ;
+                    message += item.ToString() + " ";
+                }
+                model = viewModel.Where(x => x.Price >= filterModel.PriceDown && x.Price <= filterModel.PriceUp);
+                ViewData["Message"] = $"{message} по цене от {filterModel.PriceDown} до {filterModel.PriceUp}";
             }
+            else
+            {
+                model = model.Where(x => x.Price >= filterModel.PriceDown && x.Price <= filterModel.PriceUp);
+                ViewData["Message"] = $"По цене от {filterModel.PriceDown} до {filterModel.PriceUp}";
+            }
+
             return View(model);
         }
     }
