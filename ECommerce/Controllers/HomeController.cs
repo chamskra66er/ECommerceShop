@@ -9,6 +9,7 @@ using ECommerce.Models;
 using ECommerce.Data;
 using ECommerce.Services;
 using ECommerce.Models.ProductModel;
+using ECommerce.Models.Home;
 
 namespace ECommerce.Controllers
 {
@@ -125,6 +126,20 @@ namespace ECommerce.Controllers
             var model = _productService.GetProductByCategoryId(id).OrderBy(x => x.Price);
             ViewData["Message"] = model.FirstOrDefault().Category;
             return View("CatDetail", model);
+        }
+
+        [HttpPost]
+        public IActionResult Filter(FilterModel filterModel)
+        {
+            int cateId = filterModel.CategoryId;
+            var model = _productService.GetProductByCategoryId(cateId).Where(x => x.Price >= filterModel.PriceDown
+            && x.Price <= filterModel.PriceUp);
+
+            foreach (var item in filterModel.Brands)
+            {
+                model.Where(x=>x.Brand == item);
+            }
+            return View(model);
         }
     }
 }

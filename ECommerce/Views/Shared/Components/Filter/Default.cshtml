@@ -1,13 +1,18 @@
-﻿
-<fieldset>
-    <legend>What is Your Favorite Pet?</legend>
-    <input type="checkbox" name="favorite_pet" value="Cats">Cats<br>
-    <input type="checkbox" name="favorite_pet" value="Dogs">Dogs<br>
-    <input type="checkbox" name="favorite_pet" value="Birds">Birds<br>
-</fieldset>
-<div class="form-group" style="display:flex; ">
-    <input class="form-control" />
-    <label class="control-label" style="padding-left:10px;padding-right:10px;">Цена</label>
-    <input class="form-control" />
-</div>
-<button type="submit" class="btn btn-secondary" style="height:36px;">Поиск</button>
+﻿@model ECommerce.Models.Home.FilterModel
+
+<form asp-controller="Home" asp-action="Filter" method="post">
+    <fieldset>
+        <legend>Выберите нужный бренд</legend>
+        @foreach (var item in Model.Brands)
+        {
+            <input type="checkbox" name="Brands" value="@item">@item<br>
+        }
+    </fieldset>
+    <input asp-for="CategoryId" type="hidden" class="form-control"/>
+    <div class="form-group" style="display:flex; ">
+        <input asp-for="PriceDown" class="form-control" />
+        <label class="control-label" style="padding-left:10px;padding-right:10px;">Цена</label>
+        <input asp-for="PriceUp" class="form-control" />
+    </div>
+    <button type="submit" class="btn btn-secondary" style="height:36px;">Поиск</button>
+</form>

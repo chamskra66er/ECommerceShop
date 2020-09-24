@@ -5,21 +5,31 @@
 }
 
 <div style="display:flex;">
-    <div class="col-2">
-        @await Component.InvokeAsync("Brand")
+    <div class="col-3">
+        @await Component.InvokeAsync("Filter", new { id = catId})
     </div>
     <div class="col-8">
         <div style="display:flex;">
             <h3>@ViewData["Message"]</h3>
             <span class="headCount">@Model.Count()</span>
-            <div style="display: flex;">
-                @*<partial name="_SortPartial"/>*@
+            <div style="display: flex; margin: 0 0 0 auto;">
                 @await Component.InvokeAsync("Sort", new { id = catId})
             </div>
         </div>
-        @foreach (var item in Model)
-        {
-            <div>@item.Name</div>
-        }
+        <table class="table table-hover">
+            <tr>
+                <th>Name</th>
+                <th>Price</th>
+                <th>Rait</th>
+            </tr>
+            @foreach (var item in Model)
+            {
+        <tr>
+            <td>@item.Name</td>
+            <td>@item.Price.ToString("C2")</td>
+            <td>@item.Rait</td>
+        </tr>
+            }
+        </table>
     </div>
 </div>
