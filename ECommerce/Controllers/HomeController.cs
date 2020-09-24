@@ -55,7 +55,7 @@ namespace ECommerce.Controllers
                     //subid = 1
                     var model0 = _productService.GetProductsBySubCatalogId(1);
 
-                    var prod0 = new ProductViewModel 
+                    var prod0 = new ProductViewModel
                     {
                         Products = model0,
                         id = "tv0"
@@ -81,7 +81,7 @@ namespace ECommerce.Controllers
                         Products = model2,
                         id = id
                     };
-                    ViewData["Message"] = "Домашний кинотеатр";                   
+                    ViewData["Message"] = "Домашний кинотеатр";
                     return View(prod2);
                 default:
                     break;
@@ -90,12 +90,12 @@ namespace ECommerce.Controllers
         }
 
         public IActionResult CatDetail(int id)
-        {           
+        {
             var model = _productService.GetProductByCategoryId(id);
             ViewData["Message"] = model.FirstOrDefault().Category;
             return View(model);
         }
-        
+
         //[HttpPost]
         //public JsonResult SortAlphabet(string dataToSend)
         //{
@@ -115,6 +115,14 @@ namespace ECommerce.Controllers
         public IActionResult SortRait(int id)
         {
             var model = _productService.GetProductByCategoryId(id).OrderBy(x => x.Rait);
+            ViewData["Message"] = model.FirstOrDefault().Category;
+            return View("CatDetail", model);
+        }
+
+        [HttpGet]
+        public IActionResult SortPrice(int id)
+        {
+            var model = _productService.GetProductByCategoryId(id).OrderBy(x => x.Price);
             ViewData["Message"] = model.FirstOrDefault().Category;
             return View("CatDetail", model);
         }
