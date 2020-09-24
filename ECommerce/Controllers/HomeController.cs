@@ -16,13 +16,13 @@ namespace ECommerce.Controllers
     {
         private readonly ILogger<HomeController> _logger;
         private readonly ICatalog _catalogContext;
-        private readonly IProduct _product;
+        private readonly IProduct _productService;
 
         public HomeController(ILogger<HomeController> logger, ICatalog catalogs, IProduct product)
         {
             _logger = logger;
             _catalogContext = catalogs;
-            _product = product;
+            _productService = product;
         }
 
         public IActionResult Index()
@@ -53,7 +53,7 @@ namespace ECommerce.Controllers
                     return View("TVMain", model);
                 case "tv0":
                     //subid = 1
-                    var model0 = _product.GetProductsBySubCatalogId(1);
+                    var model0 = _productService.GetProductsBySubCatalogId(1);
 
                     var prod0 = new ProductViewModel 
                     {
@@ -65,7 +65,7 @@ namespace ECommerce.Controllers
                     return View(prod0);
                 case "tv1":
                     //subid = 2
-                    var model1 = _product.GetProductsBySubCatalogId(2);
+                    var model1 = _productService.GetProductsBySubCatalogId(2);
                     var prod1 = new ProductViewModel
                     {
                         Products = model1,
@@ -75,7 +75,7 @@ namespace ECommerce.Controllers
                     return View(prod1);
                 case "tv2":
                     //subid = 3
-                    var model2 = _product.GetProductsBySubCatalogId(3);
+                    var model2 = _productService.GetProductsBySubCatalogId(3);
                     var prod2 = new ProductViewModel
                     {
                         Products = model2,
@@ -91,7 +91,7 @@ namespace ECommerce.Controllers
 
         public IActionResult CatDetail(int id)
         {           
-            var model = _product.GetProductByCategoryId(id);
+            var model = _productService.GetProductByCategoryId(id);
             ViewData["Message"] = model.FirstOrDefault().Category;
             return View(model);
         }
@@ -106,7 +106,17 @@ namespace ECommerce.Controllers
         [HttpGet]
         public IActionResult SortAlphabet(int id)
         {
-            return RedirectToAction("Index");
+            var model = _productService.GetProductByCategoryId(id).OrderBy(x => x.Name);
+            ViewData["Message"] = model.FirstOrDefault().Category;
+            return View("CatDetail", model);
+        }
+
+        [HttpGet]
+        public IActionResult SortRait(int id)
+        {
+            var model = _productService.GetProductByCategoryId(id).OrderBy(x => x.Rait);
+            ViewData["Message"] = model.FirstOrDefault().Category;
+            return View("CatDetail", model);
         }
     }
 }
