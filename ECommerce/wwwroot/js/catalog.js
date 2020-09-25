@@ -1,4 +1,8 @@
-﻿var inputLeft = document.getElementById("input-left");
+﻿//input range sliders settings
+var outpriceup = document.getElementById("priceup");
+var outpricedown = document.getElementById("pricedown");
+
+var inputLeft = document.getElementById("input-left");
 var inputRight = document.getElementById("input-right");
 
 var thumbLeft = document.querySelector(".slider > .thumb.left");
@@ -17,10 +21,19 @@ function setLeftValue() {
     thumbLeft.style.left = percent + "%";
     range.style.left = percent + "%";
 
+    //add
+    if (this.value == null) {
+        outpricedown.value = min;
+    }
+    else {
+        outpricedown.value = this.value;
+    }
 }
 setLeftValue();
 
 function setRightValue() {
+   
+
     var _this = inputRight,
         min = parseInt(_this.min),
         max = parseInt(_this.max);
@@ -31,34 +44,21 @@ function setRightValue() {
     thumbRight.style.right = (100 - percent) + "%";
     range.style.right = (100 - percent) + "%";
 
+    //add
+    if (this.value == null) {
+        outpriceup.value = max;
+    }
+    else {
+        outpriceup.value = this.value;
+    }
 }
 setRightValue();
 
 inputLeft.addEventListener("input", setLeftValue);
 inputRight.addEventListener("input", setRightValue);
 
-//var slider = document.getElementById("myRange");
-//var output = document.getElementById("demo");
-//var outpriceup = document.getElementById("priceup");
 
-//var slider2 = document.getElementById("myRan");
-//var outpricedown = document.getElementById("pricedown");
-
-
-//output.innerHTML = slider.value;
-
-//slider.addEventListener("input", function () {
-//    output.innerHTML = this.value;
-//    outpriceup.value= this.value;
-//})
-
-//slider2.addEventListener("input", function () {
-//    output.innerHTML = this.value;
-//    outpricedown.value = this.value;
-//})
-
-
-
+//route link setting for sortviewcomponent
 const select = document.querySelector("#myselect");
 const options = document.querySelectorAll("#myselect option");
 

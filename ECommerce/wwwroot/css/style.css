@@ -469,12 +469,12 @@
 
 		.slider > .thumb.left {
 			left: 25%;
-			transform: translate(-15px, -6px);
+			transform: translate(-12px, -6px);
 		}
 
 		.slider > .thumb.right {
 			right: 25%;
-			transform: translate(+15px, -6px);
+			transform: translate(+12px, -6px);
 		}
 
 input[type=range] {
