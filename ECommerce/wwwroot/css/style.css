@@ -496,3 +496,17 @@ input[type=range] {
 		background-color: red;
 		-webkit-appearance: none;
 	}
+
+.filterHead {
+	background-color: #7f7f7f;
+	font-size: 20px;
+	border-radius: 4px;
+	height: 50px;
+	padding-top: 10px;
+	text-align: center;
+	color: #fff;
+}
+.checkbox {
+	font-size: 16px;
+	font-weight: 500;
+}

@@ -1,4 +1,4 @@
-﻿//input range sliders settings
+﻿//input range sliders settings ----
 var outpriceup = document.getElementById("priceup");
 var outpricedown = document.getElementById("pricedown");
 
@@ -54,11 +54,23 @@ function setRightValue() {
 }
 setRightValue();
 
+function checkDownValue() {
+    var downval = outpricedown.value.replace(/[^0-9]/gim, '');
+    outpricedown.value = downval;
+}
+function checkUpValue() {
+    var downval = outpriceup.value.replace(/[^0-9]/gim, '');
+    outpriceup.value = downval;
+}
+
 inputLeft.addEventListener("input", setLeftValue);
 inputRight.addEventListener("input", setRightValue);
 
+outpricedown.addEventListener("blur", checkDownValue);
+outpriceup.addEventListener("blur", checkUpValue);
 
-//route link setting for sortviewcomponent
+
+//route link setting for sortviewcomponent ----
 const select = document.querySelector("#myselect");
 const options = document.querySelectorAll("#myselect option");
 

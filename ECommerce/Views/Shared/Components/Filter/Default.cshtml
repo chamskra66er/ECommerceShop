@@ -1,19 +1,20 @@
 ﻿@model ECommerce.Models.Home.FilterModel
 
-<form asp-controller="Home" asp-action="Filter" method="post">
-    <fieldset>
-        <legend>Выберите нужный бренд</legend>
-        @foreach (var item in Model.Brands)
-        {
-            <input type="checkbox" name="Brands" value="@item">@item<br>
-        }
-    </fieldset>
-    <input asp-for="CategoryId" type="hidden" class="form-control" />
-    <div class="form-group" style="display:flex; ">
-        <input asp-for="PriceDown" class="form-control" id="pricedown"/>
-        <label class="control-label" style="padding-left:10px;padding-right:10px;">Цена</label>
-        <input asp-for="PriceUp" class="form-control" id="priceup" />
-    </div>
+<form asp-controller="Home" asp-action="Filter" method="post" style="background-color:#f4f4f4;">
+    <div class="filterHead">Выберите нужный бренд</div>
+    <div style="padding:10px;">
+        <fieldset class="checkbox">           
+            @foreach (var item in Model.Brands)
+            {
+                <input type="checkbox" name="Brands" value="@item" style="margin: 0 10px 10px 0;">@item<br>
+            }
+        </fieldset>
+        <input asp-for="CategoryId" type="hidden" class="form-control" />
+        <div class="form-group" style="display:flex; ">
+            <input asp-for="PriceDown" class="form-control" id="pricedown" />
+            <label class="control-label" style="padding-left:10px;padding-right:10px;">Цена</label>
+            <input asp-for="PriceUp" class="form-control" id="priceup" />
+        </div>
         <div class="middle">
             <div class="multi-range-slider">
                 <input type="range" id="input-left" min="@Model.PriceDown" max="@Model.PriceUp" value="@Model.PriceDown">
@@ -27,6 +28,7 @@
                 </div>
             </div>
         </div>
-    <button type="submit" class="btn btn-secondary" style="height:36px;">Поиск</button>
+        <button type="submit" class="btn btn-secondary" style="height:36px;">Поиск</button>
+    </div>
 </form>
         
