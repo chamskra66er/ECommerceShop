@@ -13,6 +13,7 @@ using System.Linq;
 using System.Text;
 using System.Text.Encodings.Web;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Mvc.Routing;
 
 namespace ECommerce.Controllers
 {
@@ -109,17 +110,19 @@ namespace ECommerce.Controllers
                     _logger.LogInformation("User created a new account with password.");
 
                     var code = await _userManager.GenerateEmailConfirmationTokenAsync(user);
-                    var callbackUrl = Url.Page(
-                        "/Account/ConfirmEmail",
-                        pageHandler: null,
-                        values: new { area = "Identity", userId = user.Id, code = code, returnUrl = returnUrl },
-                        protocol: Request.Scheme);
+                    var callbackUrl = Url.Action(new UrlActionContext
+                    {
+                        Action = "ConfirmEmail",
+                        Controller = "Account",
+                        Values = new { userId = user.Id, code = code },
+                        Protocol = Request.Scheme
+                    });
                     await _emailService.SendEmailAsync("chamskra66er@gmail.com",
                         model.Email, "Confirm register", $"Подтвердите регистрацию, перейдя по ссылке:<a href='{callbackUrl}'> перейти</a>");
 
                     await _signInManager.SignInAsync(user, isPersistent: false);
                     _logger.LogInformation("User created a new account with password.");
-                    return  View("Success", "Для завершения регистрации проверьте электронную почту и перейдите по ссылке, указанной в письме");
+                    return  Content("Для завершения регистрации проверьте электронную почту и перейдите по ссылке, указанной в письме");
                 }
                 foreach (var error in result.Errors)
                 {
