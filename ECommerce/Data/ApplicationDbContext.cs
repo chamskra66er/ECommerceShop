@@ -14,5 +14,6 @@ namespace ECommerce.Data
         public DbSet<SubCatalog> SubCatalogs { get; set; }
         public DbSet<Image> Images { get; set; }
         public DbSet<Product> Products { get; set; }
+        public DbSet<Favorite> Favorits { get; set; }
     }
 }
