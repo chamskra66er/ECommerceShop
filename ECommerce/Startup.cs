@@ -37,6 +37,7 @@ namespace ECommerce
             services.AddScoped<ICatalog, CatalogService>();
             services.AddScoped<IProduct, ProductService>();
             services.AddScoped<IEmailGoogle, EmailSenderService>();
+            services.AddScoped<IFavorite, FavoriteService>();
 
             services.AddControllersWithViews();
             services.AddRazorPages();
