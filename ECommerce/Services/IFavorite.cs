@@ -9,5 +9,9 @@ namespace ECommerce.Services
         IEnumerable<Favorite> GetFavorites();
 
         Task AddFavorite(Favorite favorite);
+
+        Task RemoveFavorite(Favorite favorite);
+
+        IEnumerable<Favorite> GetByUserId(string userId);
     }
 }
