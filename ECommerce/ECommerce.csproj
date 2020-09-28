@@ -21,6 +21,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Folder Include="Models\Favorite\" />
     <Folder Include="wwwroot\images\" />
   </ItemGroup>
 

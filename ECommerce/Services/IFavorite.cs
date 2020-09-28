@@ -13,5 +13,7 @@ namespace ECommerce.Services
         Task RemoveFavorite(Favorite favorite);
 
         IEnumerable<Favorite> GetByUserId(string userId);
+
+        Favorite GetByUserIdAndProductId(string userId, int productId);
     }
 }

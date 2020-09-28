@@ -32,5 +32,8 @@ namespace ECommerce.Services
             _context.Remove(favorite);
             await _context.SaveChangesAsync();
         }
+
+        public Favorite GetByUserIdAndProductId(string userId, int productId)=>
+            _context.Favorits.Where(x => x.UserId == userId && x.ProductId == productId).FirstOrDefault();
     }
 }

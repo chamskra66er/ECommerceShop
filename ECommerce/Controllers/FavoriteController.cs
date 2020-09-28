@@ -31,8 +31,9 @@ namespace ECommerce.Controllers
             }
 
             var userId = _userManager.GetUserId(User);
-            var model = _favoriteService.GetByUserId(userId);
-            return View(model);
+            var favorites = _favoriteService.GetByUserId(userId); 
+
+            return View(favorites);
         }
 
     }
