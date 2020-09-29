@@ -69,7 +69,9 @@ namespace ECommerce.Controllers
 
         public async Task<IActionResult> Delete(int id)
         {
-            //var favorite = _favoriteService
+            var favorite = _favoriteService.GetByProductId(id);
+            await _favoriteService.RemoveFavorite(favorite);
+
             return RedirectToAction("Index");
         }
 
