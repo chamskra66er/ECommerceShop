@@ -15,5 +15,7 @@ namespace ECommerce.Services
         IEnumerable<Favorite> GetByUserId(string userId);
 
         Favorite GetByUserIdAndProductId(string userId, int productId);
+
+        Favorite GetByProductId(int id);
     }
 }

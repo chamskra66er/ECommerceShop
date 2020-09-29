@@ -12,5 +12,6 @@ namespace ECommerce.Services
         IEnumerable<Product> GetProductsBySubCatalogIds(int? id1, int? id2, int? id3);
         IEnumerable<Product> Search(string query);
         IEnumerable<Product> GetProductByCategoryId(int? id);
+        Product GetProductById(int id);
     }
 }

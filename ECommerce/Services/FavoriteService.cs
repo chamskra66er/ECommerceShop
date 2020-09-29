@@ -35,5 +35,8 @@ namespace ECommerce.Services
 
         public Favorite GetByUserIdAndProductId(string userId, int productId)=>
             _context.Favorits.Where(x => x.UserId == userId && x.ProductId == productId).FirstOrDefault();
+
+        public Favorite GetByProductId(int id) =>
+            GetFavorites().Where(x => x.ProductId == id).FirstOrDefault();
     }
 }

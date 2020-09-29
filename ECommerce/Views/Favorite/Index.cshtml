@@ -1,11 +1,17 @@
 ﻿@model IEnumerable<Favorite>
 
-<div>advertising view component</div>
-<div>
-    <table>
+<div style="display:flex;">
+    <div>advertising view component</div>
+    <div style="margin-left:100px;">
         @foreach (var item in Model)
-	    {
-		    
-	    }
-    </table>
+        {
+        <div style="height:150px;">
+            <img />
+            @item.ProductName
+            <a asp-action="Delete" asp-controller="Favorite" asp-route-id="@item.ProductId">
+                <span class="text-dark" title="Удалить из избранных">&times;</span>
+            </a>
+        </div>
+        }
+    </div>
 </div>

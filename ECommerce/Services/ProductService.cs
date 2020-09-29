@@ -21,6 +21,9 @@ namespace ECommerce.Services
             return _context.Products.Where(x => x.CategoryId == id);
         }
 
+        public Product GetProductById(int id) =>
+            _context.Products.FirstOrDefault(x=>x.Id==id);
+
         public IEnumerable<Product> GetProductsBySubCatalogId(int? id) =>
             _context.Products.Where(x => x.SubCatalogId == id);
 
