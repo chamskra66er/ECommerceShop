@@ -40,7 +40,11 @@ namespace ECommerce
             services.AddScoped<IFavorite, FavoriteService>();
 
             services.AddControllersWithViews();
+
+            //add blazor pages to use Blazor
             services.AddRazorPages();
+            //+add Blazor
+            services.AddServerSideBlazor();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -71,6 +75,11 @@ namespace ECommerce
                     name: "default",
                     pattern: "{controller=Home}/{action=Index}/{id?}");
                 endpoints.MapRazorPages();
+
+                //+adds the hub, which is how Blazor component connect ...
+                endpoints.MapBlazorHub();
+                //+
+                //endpoints.MapFallbackToPage("/_Host");
             });
         }
     }
