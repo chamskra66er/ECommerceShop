@@ -27,6 +27,11 @@ namespace ECommerce.Models.CartModels
             base.AddItem(product, quantity);
             Session.SetJson("Cart", this);
         }
+        public override void SubItem(Product product, int quantity)
+        {
+            base.SubItem(product, quantity);
+            Session.SetJson("Cart", this);
+        }
 
         public override void RemoveLine(Product product)
         {

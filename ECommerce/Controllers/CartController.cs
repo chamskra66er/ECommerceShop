@@ -13,14 +13,15 @@ namespace ECommerce.Controllers
         private readonly Cart _cart;
         private readonly IProduct _productService;
 
-        public CartController(Cart cart)
+        public CartController(Cart cart, IProduct productService)
         {
             _cart = cart;
+            _productService = productService;
         }
 
         public IActionResult AddToCart(int id)
         {
-            var product = _productService.GetById(id);
+            var product = _productService.GetProductById(id);
             if (product != null)
             {
                 _cart.AddItem(product, 1);

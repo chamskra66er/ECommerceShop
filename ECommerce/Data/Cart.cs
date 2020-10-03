@@ -26,6 +26,16 @@ namespace ECommerce.Data
                 line.Quantity += quantity;
             }
         }
+        public virtual void SubItem(Product product, int quantity)
+        {
+            var line = lineCollection
+                .Where(p => p.Product.Id == product.Id)
+                .FirstOrDefault();
+            if (line.Quantity >= 2)
+            {
+                line.Quantity -= quantity;
+            }
+        }
 
         public virtual void RemoveLine(Product product) =>
             lineCollection.RemoveAll(l => l.Product.Id == product.Id);
