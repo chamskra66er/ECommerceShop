@@ -12,7 +12,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Blazor</title>
 
-    @* This tells Blazor that our app is running relative to /Blazor/ *@
+    @* Cообщает Blazor, что наше приложение работает относительно /Blazor/ *@
     <base href="~/Blazor/" />
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
 
@@ -35,10 +35,6 @@
         <a href="" class="reload">Reload</a>
         <a class="dismiss">🗙</a>
     </div>
-
-    @* The ~/ (absolute path) is important. This script is still found at the root of our site,
-        but if you don't add ~/, the browser will look under /Blazor/ because of the change we made
-        to the <base> element above. *@
     <script src="~/_framework/blazor.server.js"></script>
 </body>
 </html>

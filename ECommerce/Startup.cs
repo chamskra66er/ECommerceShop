@@ -77,9 +77,9 @@ namespace ECommerce
                 endpoints.MapRazorPages();
 
                 //+adds the hub, which is how Blazor component connect ...
-                endpoints.MapBlazorHub();
+                endpoints.MapBlazorHub("/Blazor/_blazor");
                 //+
-                //endpoints.MapFallbackToPage("/_Host");
+                endpoints.MapFallbackToPage("~/Blazor/{*clientroutes:nonfile}", "/Blazor/_Host");
             });
         }
     }
