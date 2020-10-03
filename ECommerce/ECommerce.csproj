@@ -22,6 +22,7 @@
 
   <ItemGroup>
     <Folder Include="Models\Favorite\" />
+    <Folder Include="Models\Cart\" />
     <Folder Include="wwwroot\images\" />
   </ItemGroup>
 
