@@ -13,6 +13,8 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using ECommerce.Services;
+using ECommerce.Models.CartModels;
+using Microsoft.AspNetCore.Http;
 
 namespace ECommerce
 {
@@ -38,6 +40,12 @@ namespace ECommerce
             services.AddScoped<IProduct, ProductService>();
             services.AddScoped<IEmailGoogle, EmailSenderService>();
             services.AddScoped<IFavorite, FavoriteService>();
+
+            services.AddScoped<Cart>(sp => SessionCart.GetCart(sp));
+            services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
+
+            services.AddMemoryCache();
+            services.AddSession();
 
             services.AddControllersWithViews();
 
