@@ -10,23 +10,20 @@ namespace ECommerce.Pages.Blazor
 {
     public class CartBase : ComponentBase
     {
-        private readonly ECommerce.Data.Cart _cart;
+        [Inject]
+        public ECommerce.Data.Cart _cart { get; set; }
 
-        private readonly IProduct _productService;
+        [Inject]
+        public IProduct _productService { get; set; }
 
-        private IEnumerable<CartLine> _cartLines;
+        public IEnumerable<CartLine> _cartLines;
 
-        public CartBase(ECommerce.Data.Cart cart, IProduct productService)
-        {
-            _cart = cart;
-            _productService = productService;
-        }
-
-        protected override async Task OnInitializedAsync()
+        protected override Task OnInitializedAsync()
         {
             _cartLines = _cart.Lines;
+            return base.OnInitializedAsync();
         }
-        private void AddToCart(int id)
+        protected void AddToCart(int id)
         {
             var product = _productService.GetProductById(id);
             if (product != null)
@@ -35,7 +32,7 @@ namespace ECommerce.Pages.Blazor
             }
         }
 
-        private void RemoveFromCart(int id)
+        protected void RemoveFromCart(int id)
         {
             var product = _productService.GetProductById(id);
             if (product != null)
@@ -44,7 +41,7 @@ namespace ECommerce.Pages.Blazor
             }
         }
 
-        private void DeleteCartItem(int id)
+        protected void DeleteCartItem(int id)
         {
             var product = _productService.GetProductById(id);
             if (product != null)

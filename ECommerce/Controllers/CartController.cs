@@ -1,9 +1,6 @@
 ﻿using ECommerce.Data;
 using Microsoft.AspNetCore.Mvc;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 using ECommerce.Services;
 
 namespace ECommerce.Controllers
@@ -26,7 +23,7 @@ namespace ECommerce.Controllers
             {
                 _cart.AddItem(product, 1);
             }
-            return Redirect("/Blazor/Cart");
+            return Redirect("/Blazor/CartBaseView");
         }
     }
 }

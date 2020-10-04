@@ -1,10 +1,9 @@
-﻿@page "/CartView"
+﻿@page "/CartBaseView"
+@inherits CartBase
 
-@inject ECommerce.Data.Cart _cart
-@inject ECommerce.Services.IProduct _productService
+<h3>Shoping Cart From CartBase</h3>
 
-<h4 class="modal-title">Shopping cart</h4>
-@if (cartLines.Count() == 0)
+@if (_cartLines.Count() == 0)
 {
     <h2 style="text-align:center; margin-top:50px">
         The basket is currently empty
@@ -16,12 +15,12 @@ else
         <div class="modal_list">
             @{
                 int iter = 0;
-                foreach (var item in cartLines)
+                foreach (var item in _cartLines)
                 {
                     iter++;
                     string modalId = $"itemId{@iter}";
 
-                    if (item.Quantity!=0)
+                    if (item.Quantity != 0)
                     {
                         <div class="row modal_item">
                             <button @onclick="@(()=>DeleteCartItem(item.Product.Id))">
@@ -65,44 +64,6 @@ else
     <a href="/Home" target="_self">Link to MVC</a>
 </div>
 
-
 @code {
-    private List<ECommerce.Data.CartLine> cartLines;
 
-    protected override async Task OnInitializedAsync()
-    {
-        cartLines = _cart.Lines.ToList();
-    }
-
-    private void AddToCart(int id)
-    {
-        var product = _productService.GetProductById(id);
-        if (product != null)
-        {
-            _cart.AddItem(product, 1);
-        }
-    }
-
-    private void RemoveFromCart(int id)
-    {
-        var product = _productService.GetProductById(id);
-        if (product != null)
-        {
-            _cart.SubItem(product, 1);
-        }
-    }
-
-    private void DeleteCartItem(int id)
-    {
-        var product = _productService.GetProductById(id);
-        if (product != null)
-        {
-            _cart.RemoveLine(product);
-        }
-    }
-    //private int GetItemId()
-    //{
-    //    var item =
-    //    return 1;
-    //}
 }

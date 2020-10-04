@@ -10,6 +10,7 @@ namespace ECommerce.Services
     public class ProductService : IProduct
     {
         private readonly ApplicationDbContext _context;
+        public ProductService() { }
 
         public ProductService(ApplicationDbContext context)
         {
