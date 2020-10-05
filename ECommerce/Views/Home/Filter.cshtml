@@ -12,14 +12,26 @@
                 <th>Name</th>
                 <th>Price</th>
                 <th>Rait</th>
+                <th></th>
+                <th></th>
             </tr>
             @foreach (var item in Model)
             {
-                <tr>
-                    <td>@item.Name</td>
-                    <td>@item.Price.ToString("C2")</td>
-                    <td>@item.Rait</td>
-                </tr>
+        <tr>
+            <td>@item.Name</td>
+            <td>@item.Price.ToString("C2")</td>
+            <td>@item.Rait</td>
+            <td>
+                <a asp-action="AddFavorite" asp-controller="Favorite" asp-route-id="@item.Id">
+                    <i class="fa fa-smile-o text-dark" aria-hidden="true" title="В избранное"></i>
+                </a>
+            </td>
+            <td>
+                <a asp-action="AddToCart" asp-controller="Cart" asp-route-id="@item.Id">
+                    <i class="fa fa-cart-plus text-dark" aria-hidden="true" title="В корзину"></i>
+                </a>
+            </td>
+        </tr>
             }
         </table>
     }
