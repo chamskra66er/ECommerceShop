@@ -1,11 +1,17 @@
-﻿
+﻿@model Cart
 
-<ul class="navbar-nav">
-    <li class="nav-item">
+<div style="display:flex;">
+    <div style="margin-right:-25px;">
         <a id="myBtn" class="nav-link text-dark" href="/Blazor/CartBaseView">
             <i class="fa fa-shopping-cart fa-2x" style="padding-left:10px; padding-right:10px;"
-               title="Корзина"></i>
+               title="Корзина">
+            </i>
         </a>
-
-    </li>
-</ul>
+    </div>
+    @if (Model.Lines.Count()!=0)
+    {
+        <div class="cartQuantity">
+            [@Model.Lines.Sum(x => x.Quantity)]
+        </div>
+    }
+</div>
