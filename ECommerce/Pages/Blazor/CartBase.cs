@@ -3,6 +3,8 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Components;
 using ECommerce.Services;
 using ECommerce.Data;
+using Microsoft.JSInterop;
+using Microsoft.AspNetCore.Mvc;
 
 namespace ECommerce.Pages.Blazor
 {
@@ -47,6 +49,5 @@ namespace ECommerce.Pages.Blazor
                 _cart.RemoveLine(product);
             }
         }
-
     }
 }

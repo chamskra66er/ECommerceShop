@@ -1,7 +1,11 @@
 ﻿@page "/CartBaseView"
 @inherits CartBase
 
-<h3>Shoping Cart From CartBase</h3>
+<header id="site-header">
+    <div class="container">
+        <h1>Shopping cart</h1>
+    </div>
+</header>
 
 @if (_cartLines.Count() == 0)
 {
@@ -11,49 +15,74 @@
 }
 else
 {
-    <div class="container col-9 text-center">
-        <div class="modal_list">
-            @{
-                int iter = 0;
-                foreach (var item in _cartLines)
-                {
-                    iter++;
-                    string modalId = $"itemId{@iter}";
+    <div class="container">
+        <section id="cart">
+            @foreach (var item in _cartLines)
+            {
+                <article class="product">
+                    <header>
+                        <a class="remove">
+                            <img src="http://www.astudio.si/preview/blockedwp/wp-content/uploads/2012/08/1.jpg" alt="">
+                            <h3 @onclick="@(()=>DeleteCartItem(item.Product.Id))">Remove product</h3>
+                        </a>
+                    </header>
+                    <div class="content">
+                        <h1>@item.Product.Name</h1>
+                            Product description
+                    </div>
+                    <footer class="content">
+                        <span class="qt-minus" @onclick="@(() => RemoveFromCart(item.Product.Id))">-</span>
+                        <span class="qt">@item.Quantity</span>
+                        <span class="qt-plus" @onclick="@(() => AddToCart(item.Product.Id))">+</span>
 
-                    if (item.Quantity != 0)
-                    {
-                        <div class="row modal_item">
-                            <button @onclick="@(()=>DeleteCartItem(item.Product.Id))">
-                                <span class="closeModal" href="#">&times;</span>
-                            </button>
-                            <div class="modal_item_img">
-                                <div class="ih_modal_item_img ih-item circle effect19 top_to_bottom">
-                                    <a href="#">
-                                        <div class="img">
-                                            <img class="modal_item_img" src="@item.Product.Image">
-                                        </div>
-                                    </a>
-                                </div>
-                            </div>
-                            <div class="modal_item_info">
-                                <p class="modal_item_info_text">@item.Product.Name</p>
-                                <p class="modal_item_info_text">@item.Product.Price.ToString("C2")</p>
-                            </div>
-                            <div class="modal_counter mt-5">
-                                <button class="minus" @onclick="@(() => RemoveFromCart(item.Product.Id))">-</button>
-                                <p class="count">@item.Quantity</p>
-                                <button class="plus" @onclick="@(() => AddToCart(item.Product.Id))">+</button>
-                            </div>
-                            <div class="modal_item_total">
-                                <p>@(item.Quantity * item.Product.Price)</p>
+                        <h2 class="full-price">
+                            @((item.Quantity * item.Product.Price).ToString("C2"))
+                        </h2>
+
+                        <h2 class="price">
+                            @item.Product.Price.ToString("C2")
+                        </h2>
+                    </footer>
+                </article>
+            }
+        </section>
+    </div>
+
+
+    @*<div class="cartContent">
+            <div class="modal_list">
+                @foreach (var item in _cartLines)
+                {
+                    <div class="row modal_item">
+                        <button @onclick="@(()=>DeleteCartItem(item.Product.Id))">
+                            <span class="closeModal" href="#">&times;</span>
+                        </button>
+                        <div class="modal_item_img">
+                            <div class="ih_modal_item_img ih-item circle effect19 top_to_bottom">
+                                <a href="#">
+                                    <div class="img">
+                                        <img class="modal_item_img" src="@item.Product.Image">
+                                    </div>
+                                </a>
                             </div>
                         </div>
-                    }
+                        <div class="modal_item_info">
+                            <p class="modal_item_info_text">@item.Product.Name</p>
+                            <p class="modal_item_info_text">@item.Product.Price.ToString("C2")</p>
+                        </div>
+                        <div class="modal_counter mt-5">
+                            <button class="minus" @onclick="@(() => RemoveFromCart(item.Product.Id))">-</button>
+                            <p class="count">@item.Quantity</p>
+                            <button class="plus" @onclick="@(() => AddToCart(item.Product.Id))">+</button>
+                        </div>
+                        <div class="modal_item_total">
+                            <p>@(item.Quantity * item.Product.Price)</p>
+                        </div>
+                    </div>
                 }
-            }
 
-        </div>
-    </div>
+            </div>
+        </div>*@
 }
 
 <div class="mt-3">
@@ -64,6 +93,4 @@ else
     <a href="/Home" target="_self">Вернуться к покупкам</a>
 </div>
 
-@code {
 
-}
