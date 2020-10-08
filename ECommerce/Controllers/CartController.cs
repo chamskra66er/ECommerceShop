@@ -19,6 +19,7 @@ namespace ECommerce.Controllers
         public IActionResult AddToCart(int id)
         {
             var product = _productService.GetProductById(id);
+            //product.Image = _productService.GetImageByProductId(id);
             if (product != null)
             {
                 _cart.AddItem(product, 1);

@@ -93,6 +93,12 @@ namespace ECommerce.Controllers
         public IActionResult CatDetail(int id)
         {
             var model = _productService.GetProductByCategoryId(id);
+
+            //foreach (var item in model)
+            //{
+            //    item.Image = _productService.GetImageByProductId(item.Id);
+            //}
+
             ViewData["Message"] = model.FirstOrDefault().Category;
             return View(model);
         }

@@ -13,5 +13,6 @@ namespace ECommerce.Services
         IEnumerable<Product> Search(string query);
         IEnumerable<Product> GetProductByCategoryId(int? id);
         Product GetProductById(int id);
+        Image GetImageByProductId(int id);
     }
 }
